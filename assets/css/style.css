@@ -2,9 +2,11 @@ body {
   background: #F5C556;
   margin-bottom: 150px;
 }
-
+h1{
+  font-size: 1.9rem;
+}
 .logo {
-  width: 30%;
+  width: 40%;
   margin: 20px auto 100px auto;
 }
 
@@ -45,6 +47,9 @@ body {
   color: #9e720a;
 }
 
+select{
+  cursor: pointer;
+}
 .search_input {
   border-bottom: 2px solid #9e720a;
   background: transparent;
@@ -102,7 +107,7 @@ body {
 
 .buscador {
   display: flex;
-  width: 50%;
+  width: 65%;
   align-items: baseline;
 }
 
@@ -111,6 +116,10 @@ body {
   border-radius: 1rem;
   background: transparent;
   margin-top: 30px;
+  transition: ease .5s;
+}
+.card:hover{
+  transform: scale(1.1);
 }
 
 .card-body {
@@ -118,6 +127,9 @@ body {
   background-color: #93CDAF;
   border-radius: 1rem;
   padding-top: 100px;
+  -webkit-box-shadow: 0px 0px 34px -18px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 34px -18px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 34px -18px rgba(0,0,0,0.75);
 }
 
 .card-body h5 {
@@ -149,6 +161,12 @@ body {
 }
 
 @media (max-width: 960px) {
+  .logo {
+    width: 55%;
+  }
+  .form {
+    justify-content: space-between;
+  }
   .serach_align {
     flex-direction: column;
   }
@@ -163,16 +181,25 @@ body {
   }
 
   .buscador {
-    width: 80%;
+    width: 100%;
+  }
+  
+  .modal-content{
+    padding-bottom: 52px;
+    width: 530px;
   }
 }
-
-.modal-content{
-  padding-bottom: 52px;
-  width: 530px;
-}
 @media (max-width: 575px) {
-
+  .logo {
+    width: 70%;
+    margin: 20px auto 70px auto;
+  }
+  .serach_align {
+    margin: 0 25px;
+}
+.search_input{
+  width: 75%;
+}
   .card {
     margin: 20px;
   }

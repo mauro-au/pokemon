@@ -9,7 +9,37 @@ $(document).ready(function () {
 
 })
 
-var url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=150';
+function cardPokemon(funpok) {
+  let imgFront = funpok.sprites.front_default;
+  let pokemonName = funpok.name.toUpperCase();
+  let pokemonId = funpok.id;
+  let stats = funpok.stats;  
+
+  $('.main').append(
+    '<div class="card col-sm-6 col-md-4 col-xl-3">' +
+        '<img src=" ' + imgFront + ' " class="card-img-top" id="img" alt="...">' +
+        '<div class="circle"></div>' +
+        '<div class="card-body">' +
+            '<h5 id="numero">#' + pokemonId + '</h5>' +
+            '<h1 class="card-title" id="name">' + pokemonName + '</h1>' +
+            '<button onclick="Graficar(' + stats[0].base_stat + ',' + stats[3].base_stat + ',' + stats[0].base_stat + ',' + stats[0].base_stat + ')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">' + 'Ver Gráfica' +
+            '</button>' +
+        '</div>' +
+    '</div>'
+  )
+}
+
+BuscarPokemones();
+
+function BuscarPokemones() {
+  $.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150', data => {
+    data.results.forEach(pokemones => {
+      $.get(pokemones.url, dataPokemon => {
+        cardPokemon(dataPokemon);
+      })
+    })
+  })
+}
 
 
 
@@ -28,25 +58,12 @@ function getPokemonId() {
 
 function obtenerPokemonPorIdApi(id) {
   $.get('https://pokeapi.co/api/v2/pokemon/' + id, data2 => {
-    console.log(data2);
-    let imgFront = data2.sprites.front_default
-    let pokeId = data2.id.toString().padStart(3, '0');
-    let stats = data2.stats;
-    $('.main').append(
-      '<div class="card col-sm-6 col-md-4 col-xl-3">' +
-      '<img src=" ' + imgFront + ' " class="card-img-top" id="img" alt="...">' +
-      '<div class="circle"></div>' +
-      '<div class="card-body">' +
-      '<h5 id="numero">#' + pokeId + '</h5>' +
-      '<h1 class="card-title" id="name">' + data2.name + '</h1>' +
-      '<button onclick="Graficar(' + stats[0].base_stat + ',' + stats[3].base_stat + ',' + stats[0].base_stat + ',' + stats[0].base_stat + ')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">' +
-      'Ver Gráfica' +
-      '</button>' +
-      '</div>' +
-      '</div>'
-    )
+    cardPokemon(data2);
+    // console.log(data2);
   });
 }
+
+
 
 
 $.get('https://pokeapi.co/api/v2/type/', pokeTypes => {
@@ -61,84 +78,48 @@ $.get('https://pokeapi.co/api/v2/type/', pokeTypes => {
 
 
 function BuscarPokemonesLista() {
-
   $('.main').html('');
 
   let tipo = $('#search_select').val();
   let endPoint = 'https://pokeapi.co/api/v2/type/' + tipo;
 
   $.get(endPoint, data => {
-
     data.pokemon.forEach(pokemoness => {
-      console.log(pokemoness);
-      $('.main').append(
-        '<div class="card col-sm-6 col-md-4 col-xl-3">' +
-        // '<img src=" '+ imgFront +' " class="card-img-top" id="img" alt="...">'+
-        '<div class="circle"></div>' +
-        '<div class="card-body">' +
-        '<h5 id="numero">#001</h5>' +
-        '<h1 class="card-title" id="name">' + pokemoness.pokemon.name + '</h1>' +
-        // '<a href="#" class="btn btn-primary">ver más</a>'+
-        '</div>' +
-        '</div>'
-      )
-    })
-  })
-}
 
+      $.get(pokemoness.pokemon.url, pokeresult => {
 
-BuscarPokemones();
-
-function BuscarPokemones() {
-  $.get(url, data => {
-    data.results.forEach(pokemones => {
-      $.get(pokemones.url, dataPokemon => {
-        let imgFront = dataPokemon.sprites.front_default;
-        let pokeId = dataPokemon.id.toString().padStart(3, '0');
-        let stats = dataPokemon.stats;
-        $('.main').append(
-          '<div class="card col-sm-6 col-md-4 col-xl-3">' +
-          '<img src=" ' + imgFront + ' " class="card-img-top" id="img" alt="...">' +
-          '<div class="circle"></div>' +
-          '<div class="card-body">' +
-          '<h5 id="numero">#' + pokeId + '</h5>' +
-          '<h1 class="card-title" id="name">' + pokemones.name + '</h1>' +
-          '<button onclick="Graficar(' + stats[0].base_stat + ',' + stats[3].base_stat + ',' + stats[0].base_stat + ',' + stats[0].base_stat + ')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">' +
-          'Ver Gráfica' +
-          '</button>' +
-          '</div>' +
-          '</div>'
-        )
+        [pokeresult].forEach(pokem => {
+          cardPokemon(pokem);
+          // console.log(pokem.id);
+        })
       })
     })
   })
 }
 
 
-
 function Graficar(speed, defense, attack, hp) {
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	title:{
-		text: "habilidades"
-	},
-	axisY: {
-		title: ""
-	},
-	data: [{        
-		type: "column",  
-		showInLegend: true, 
-		legendMarkerColor: "grey",
-		// legendText: "MMbbl = one million barrels",
-		dataPoints: [      
-			{ y: speed, label: "Velocidad" },
-			{ y: defense,  label: "Defensa" },
-			{ y: attack,  label: "Ataque" },
-			{ y: hp,  label: "Puntos de vida" }
-
-		]
-	}]
-});
-chart.render();
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    title: {
+      text: "habilidades"
+    },
+    axisY: {
+      title: ""
+    },
+    data: [{
+      type: "column",
+      showInLegend: true,
+      legendMarkerColor: "grey",
+      // legendText: "MMbbl = one million barrels",
+      dataPoints: [
+        {y: speed, label: "Velocidad"},
+        {y: defense, label: "Defensa"},
+        {y: attack, label: "Ataque"},
+        {y: hp, label: "Puntos de vida"}
+      ]
+    }]
+  });
+  chart.render();
 }
