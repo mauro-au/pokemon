@@ -2,9 +2,12 @@ body {
   background: #F5C556;
   margin-bottom: 150px;
 }
-h1{
+
+h1 {
   font-size: 1.9rem;
+  opacity: 0.7;
 }
+
 .logo {
   width: 40%;
   margin: 20px auto 100px auto;
@@ -40,16 +43,16 @@ h1{
 
 .form button {
   border: 0;
-  /* background: transparent; */
 }
 
 .form button i {
   color: #9e720a;
 }
 
-select{
+select {
   cursor: pointer;
 }
+
 .search_input {
   border-bottom: 2px solid #9e720a;
   background: transparent;
@@ -71,8 +74,6 @@ select{
   border-bottom: 2px solid #0069d9;
   box-shadow: 0 1px 0 0 rgb(119, 119, 119);
 }
-
-
 
 .custom-select {
   border: 0;
@@ -118,7 +119,8 @@ select{
   margin-top: 30px;
   transition: ease .5s;
 }
-.card:hover{
+
+.card:hover {
   transform: scale(1.1);
 }
 
@@ -127,13 +129,13 @@ select{
   background-color: #93CDAF;
   border-radius: 1rem;
   padding-top: 100px;
-  -webkit-box-shadow: 0px 0px 34px -18px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 34px -18px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 34px -18px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
 }
 
 .card-body h5 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 20px;
   padding: 5px;
   width: 75px;
@@ -160,13 +162,117 @@ select{
   margin-top: 10px;
 }
 
+.modal-dialog {
+  max-width: 545px;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  background-color: rgb(255, 255, 255, .2);
+  border-color: rgb(255, 255, 255, 0);
+  border-radius: 30px;
+  padding: 10px 25px;
+  -webkit-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
+}
+
+.fade {
+  opacity: 1;
+  -webkit-transition: .5s ease-in;
+  transition: .5s ease-in-out;
+}
+
+.normal {
+  background-color: rgb(168, 168, 120, 0.7);
+}
+
+.fighting {
+  background-color: rgb(191, 48, 39, 0.7);
+}
+
+.flying {
+  background-color: rgb(167, 144, 240, 0.7);
+}
+
+.poison {
+  background-color: rgb(159, 64, 159, 0.7);
+}
+
+.ground {
+  background-color: rgb(224, 192, 104, 0.7);
+}
+
+.rock {
+  background-color: rgb(183, 160, 55, 0.7);
+}
+
+.bug {
+  background-color: rgb(167, 184, 32, 0.7);
+}
+
+.ghost {
+  background-color: rgb(112, 89, 152, 0.7);
+}
+
+.steel {
+  background-color: rgb(184, 183, 208, 0.7);
+}
+
+.fire {
+  background-color: rgb(240, 128, 48, 0.7);
+}
+
+.water {
+  background-color: rgb(104, 144, 240, 0.7);
+}
+
+.grass {
+  background-color: rgb(120, 199, 80, 0.7);
+}
+
+.electric {
+  background-color: rgb(248, 208, 48, 0.7);
+}
+
+.psychic {
+  background-color: rgb(248, 88, 136, 0.7);
+}
+
+.ice {
+  background-color: rgb(152, 216, 216, 0.7);
+}
+
+.dragon {
+  background-color: rgb(126, 79, 235, 0.7);
+}
+
+.dark {
+  background-color: rgb(113, 88, 72, 0.7);
+}
+
+.fairy {
+  background-color: rgb(238, 153, 172, 0.7);
+}
+
+.unknown {
+  background-color: rgb(255, 202, 142, 0.7);
+}
+
+.shadow {
+  background-color: rgb(42, 78, 141, 0.7);
+}
+
+
 @media (max-width: 960px) {
   .logo {
     width: 55%;
   }
+
   .form {
     justify-content: space-between;
   }
+
   .serach_align {
     flex-direction: column;
   }
@@ -183,23 +289,27 @@ select{
   .buscador {
     width: 100%;
   }
-  
-  .modal-content{
+
+  .modal-content {
     padding-bottom: 52px;
     width: 530px;
   }
 }
+
 @media (max-width: 575px) {
   .logo {
     width: 70%;
     margin: 20px auto 70px auto;
   }
+
   .serach_align {
     margin: 0 25px;
-}
-.search_input{
-  width: 75%;
-}
+  }
+
+  .search_input {
+    width: 75%;
+  }
+
   .card {
     margin: 20px;
   }

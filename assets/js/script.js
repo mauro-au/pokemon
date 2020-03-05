@@ -13,26 +13,40 @@ function cardPokemon(funpok) {
   let imgFront = funpok.sprites.front_default;
   let pokemonName = funpok.name.toUpperCase();
   let pokemonId = funpok.id;
-  let stats = funpok.stats;  
+  let stats = funpok.stats;
+  let type = funpok.types; 
+  let tipos ="";
+  if(type.length < 2){
+    tipos += type[0].type.name + " ";
+ 
+  }else if(type.length < 3){
+    tipos += type[0].type.name + " ";
+    tipos += type[1].type.name + " ";
+}
+
+else{
+    tipos += type[0];
+  }
 
   $('.main').append(
     '<div class="card col-sm-6 col-md-4 col-xl-3">' +
         '<img src=" ' + imgFront + ' " class="card-img-top" id="img" alt="...">' +
         '<div class="circle"></div>' +
-        '<div class="card-body">' +
+        '<div class="card-body ' +  tipos  +' ">' +
             '<h5 id="numero">#' + pokemonId + '</h5>' +
             '<h1 class="card-title" id="name">' + pokemonName + '</h1>' +
-            '<button onclick="Graficar(' + stats[0].base_stat + ',' + stats[3].base_stat + ',' + stats[0].base_stat + ',' + stats[0].base_stat + ')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">' + 'Ver Gráfica' +
+            '<button onclick="Graficar(' + stats[0].base_stat + ',' + stats[3].base_stat + ',' + stats[0].base_stat + ',' + stats[0].base_stat + ')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">' + 'VER GRAFICA' +
             '</button>' +
         '</div>' +
     '</div>'
   )
 }
 
-BuscarPokemones();
 
+BuscarPokemones();
+  
 function BuscarPokemones() {
-  $.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150', data => {
+  $.get('https://pokeapi.co/api/v2/pokemon/?limit=150', data => {    
     data.results.forEach(pokemones => {
       $.get(pokemones.url, dataPokemon => {
         cardPokemon(dataPokemon);
