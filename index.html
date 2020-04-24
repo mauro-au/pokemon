@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Pokedex</title>
+  <meta name="author" content="Mauricio Alvarez">
   <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -17,33 +21,37 @@
   <header>
     <div class="container">
       <div class="row">
-        <img class="logo" src="assets/img/logo.png" alt="">
+        <img class="logo" id="home" src="assets/img/logo.png" alt="">
       </div>
     </div>
 
     <div class="container search">
       <div class="serach_align">
-        <div class="search1">
+        <div class="row"> 
+        <div class="search1 col-12 col-md-6">
           <form class="form">
             <div class="buscador">
-              <input class="form-control search_input" id="idPokemon" type="text" placeholder="Busca tu pokemon">
               <i class="fas fa-search icon"></i>
-              <button class="btn btn-search" type="button" onclick="getPokemonId()">Buscar</button>
+              <input class="form-control search_input" id="idPokemon" type="text" placeholder="Busca tu pokemon">
+              <button class="btn btn-search" id="boton_buscar_numero" type="button">Buscar</button>
             </div>
             <div class="input-group-append">
           </div>
           </form>
-
         </div>
 
-        <div class="search2">
+        <div class="search2 col-12 col-md-6">
           <div class="input-group">
-            <select class="custom-select" id="search_select"></select>
+            <select class="custom-select" id="search_select">
+              <option disabled selected>Tipo de pokemon</option>
+            </select>
             <div class="input-group-append">
-              <button class="btn btn-search" type="button" onclick="BuscarPokemonesLista()">Buscar</button>
+              <button class="btn btn-search" id="boton_buscar_tipo" type="button">Buscar</button>
+              <i class="fas fa-caret-down icon2"></i>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </header>
@@ -51,29 +59,10 @@
   <section>
     <div class="container">
       <div class="row main justify-content-around">
-
       </div>
     </div>
   </section>
 
-
-
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title"></h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-          <div id="chartContainer" style="height: 425px; width: 100%;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 

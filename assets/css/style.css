@@ -1,40 +1,53 @@
 body {
   background: #F5C556;
   margin-bottom: 150px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
 
 h1 {
   font-size: 1.9rem;
-  opacity: 0.7;
+  opacity: 0.5;
+  text-transform: capitalize;
+  font-weight: 900;
+}
+h5{
+  /* font-family: 'Roboto', sans-serif; */
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .logo {
-  width: 40%;
-  margin: 20px auto 100px auto;
+  width: 70%;
+  margin: 20px auto 60px auto;
+}
+#home{
+  cursor: pointer;
+  transition: ease .5s;
 }
 
-.serach_align {
+#home:hover {
+  transform: scale(1.1);
+}
+.search1 {
+  justify-content: center;
   display: flex;
-  align-content: space-between;
+}
+.search2 {
+  display: flex;
+  justify-content: center;
 }
 
 .search {
   margin-bottom: 60px;
 }
 
-.search1 {
-  width: 70%;
-}
-
-.search2 {
-  width: 30%;
-  float: right;
-}
-
 .form {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  width: 100%;
+  margin-bottom: 25px;
 }
 
 .form-control {
@@ -54,13 +67,14 @@ select {
 }
 
 .search_input {
-  border-bottom: 2px solid #9e720a;
-  background: transparent;
-  border-radius: 0;
+  background: #f0d698;
+  border-radius: 30px;
   width: 100%;
   transition: .5s ease-out;
   color: #9e720a;
   font-size: 1.4rem;
+  font-weight: 100;
+  padding: 30px 30px 30px 60px;
 }
 
 .search_input::placeholder {
@@ -68,13 +82,20 @@ select {
 }
 
 .search_input[type=text]:focus:not([readonly]),
-#search_select[type=text]:focus:not([readonly]) {
-  color: #9e720a;
-  background: transparent;
-  border-bottom: 2px solid #0069d9;
-  box-shadow: 0 1px 0 0 rgb(119, 119, 119);
+#search_select[type=text]:focus:not([readonly]),
+.custom-select:focus{
+  color: #9e720a !important;
+  background: #fff !important;
+  -webkit-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75) !important;
 }
-
+.input-group-append{
+  align-items: center !important;
+}
+.input-group{
+  width: 100%;
+}
 .custom-select {
   border: 0;
   border-radius: 0;
@@ -85,31 +106,54 @@ select {
 }
 
 #search_select {
-  background-color: transparent;
-  border-bottom: 2px solid #9e720a;
+  background: #f0d698;
+  border-radius: 30px;
+  transition: .5s ease-out;
   color: #9e720a;
   font-size: 1.4rem;
-
+  font-weight: 100;
+  padding-left: 28px;
+  height: 59px;
 }
-
+option {
+  background: #fff;
+  font-weight: 100;
+}
 .btn-search {
   background: #0069d9;
-  border-radius: 10px !important;
+  border-radius: 24px !important;
   padding: 11px 17px;
-  margin-left: 22px;
   color: #fff;
+  position: absolute !important;
+  right: 10px;
+  z-index: 3 !important;
+}
+.btn-search:hover {
+  color: #fff;
+  background: #034285;
 }
 
 .icon {
   font-size: 1.4rem;
-  margin-left: -35px;
   color: #9e720a;
+  position: absolute;
+  left: 25px;
 }
-
+.icon2 {
+  position: absolute;
+  right: 113px;
+  color: #9e720a;
+  font-size: 20px;
+  z-index: 3;
+}
 .buscador {
   display: flex;
-  width: 65%;
-  align-items: baseline;
+  width: 100%;
+  position: relative;
+  align-items: center;
+}
+.serach_align {
+  padding: 0px 20px;
 }
 
 .card {
@@ -118,6 +162,7 @@ select {
   background: transparent;
   margin-top: 30px;
   transition: ease .5s;
+  width: 70%;
 }
 
 .card:hover {
@@ -138,15 +183,22 @@ select {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 20px;
   padding: 5px;
-  width: 75px;
+  width: 85px;
   margin: 15px auto 20px auto;
+}
+.card-title{
+  margin: 0;
 }
 
 #img {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   position: absolute;
   top: -13px;
   z-index: 1;
-  width: 90%;
 }
 
 .circle {
@@ -159,167 +211,205 @@ select {
 }
 
 .btn-primary {
-  margin-top: 10px;
-}
-
-.modal-dialog {
-  max-width: 545px;
-}
-
-.btn-primary {
-  margin-top: 10px;
-  background-color: rgb(255, 255, 255, .2);
-  border-color: rgb(255, 255, 255, 0);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0);
   border-radius: 30px;
+  border: none;
   padding: 10px 25px;
-  -webkit-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 34px -18px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 9px 14px -6px rgba(0,0,0,.4);
+  -moz-box-shadow: 0px 9px 14px -6px rgba(0,0,0,.4);
+  box-shadow: 0px 9px 14px -6px rgba(0,0,0,.4);
+}
+.btn-primary:hover{
+  border: none;
+}
+
+/* .modal-dialog {
+  max-width: 545px;
 }
 
 .fade {
   opacity: 1;
-  -webkit-transition: .5s ease-in;
-  transition: .5s ease-in-out;
+  -webkit-transition:  .5s ease-in;
+  transition:  .5s ease-in-out;
+}
+.modal-dialog{
+  max-width: 60% !important;
+}
+.modal-body{
+  display: flex;
+  flex-wrap: wrap;
+justify-content: space-between;
+
+} */
+
+.modal-dialog{
+  max-width: 50% !important;
+}
+.modal-content{
+  border-radius: 1rem;
+}
+/* .modal_info{
+  background: peru;
+}
+.modal_grafico{
+  background: purple;
+} */
+.modal-header, .modal-footer{
+  border: none;
+}
+#chartContainer{
+  width: 100% !important;
+}
+.pokemonModal{
+  width: 200px;
+  margin: 0 auto;
 }
 
-.normal {
-  background-color: rgb(168, 168, 120, 0.7);
+
+#pokemon{
+  width: 50%;
+  padding: 40px;
+}
+#pokemon img{
+  width: 50%;
+}
+#chartContainer{
+  width: 50%;
+}
+.canvasjs-chart-canvas {
+  width: 90%;
+  right: 20px;
+}
+.canvasjs-chart-credit{
+  display: none;
+}
+.tipos {
+  display: flex;
+  justify-content: center;
+}
+.tiposPokemon{
+  padding: 15px 10px;
+  margin: 0;
+}
+.tiposPokemon img {
+  width: 41px;
+  border-radius: 50px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.2);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,.2);
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,.2);
 }
 
-.fighting {
-  background-color: rgb(191, 48, 39, 0.7);
+
+.normal, .normal .btn-primary:hover  {
+  background-color: #bfb16e;
 }
 
-.flying {
-  background-color: rgb(167, 144, 240, 0.7);
+.fighting, .fighting .btn-primary:hover {
+  background-color: #cf5c35;
 }
 
-.poison {
-  background-color: rgb(159, 64, 159, 0.7);
+.flying, .flying .btn-primary:hover {
+  background-color: #bea0c2;
 }
 
-.ground {
-  background-color: rgb(224, 192, 104, 0.7);
+.poison, .poison .btn-primary:hover {
+  background-color: #b96889;
 }
 
-.rock {
-  background-color: rgb(183, 160, 55, 0.7);
+.ground, .ground .btn-primary:hover {
+  background-color: #e6c163;
 }
 
-.bug {
-  background-color: rgb(167, 184, 32, 0.7);
+.rock,.rock .btn-primary:hover {
+  background-color: #c9ab40;
 }
 
-.ghost {
-  background-color: rgb(112, 89, 152, 0.7);
+.bug,.bug .btn-primary:hover {
+  background-color: #bebb30;
 }
 
-.steel {
-  background-color: rgb(184, 183, 208, 0.7);
+.ghost,.ghost .btn-primary:hover {
+  background-color: #987984;
 }
 
-.fire {
-  background-color: rgb(240, 128, 48, 0.7);
+.steel,.steel .btn-primary:hover {
+  background-color: #cabbac;
 }
 
-.water {
-  background-color: rgb(104, 144, 240, 0.7);
+.fire,.fire .btn-primary:hover {
+  background-color: #f2953b;
 }
 
-.grass {
-  background-color: rgb(120, 199, 80, 0.7);
+.water,.water .btn-primary:hover {
+  background-color: #92a0c2;
 }
 
-.electric {
-  background-color: rgb(248, 208, 48, 0.7);
+.grass,.grass .btn-primary:hover {
+  background-color: #9dc652;
 }
 
-.psychic {
-  background-color: rgb(248, 88, 136, 0.7);
+.electric,.electric .btn-primary:hover {
+  background-color: #f7cd3b;
 }
 
-.ice {
-  background-color: rgb(152, 216, 216, 0.7);
+.psychic,.psychic .btn-primary:hover {
+  background-color: #f77979;
 }
 
-.dragon {
-  background-color: rgb(126, 79, 235, 0.7);
+.ice,.ice .btn-primary:hover {
+  background-color: #b4d2b1;
 }
 
-.dark {
-  background-color: rgb(113, 88, 72, 0.7);
+.dragon,.dragon .btn-primary:hover {
+  background-color: #a172bf;
 }
 
-.fairy {
-  background-color: rgb(238, 153, 172, 0.7);
+.dark,.dark .btn-primary:hover {
+  background-color: #98794c;
 }
 
-.unknown {
+.fairy,.fairy .btn-primary:hover {
+  background-color: #f0a692;
+}
+
+.unknown,.unknown .btn-primary:hover {
   background-color: rgb(255, 202, 142, 0.7);
 }
 
-.shadow {
+.shadow,.shadow .btn-primary:hover {
   background-color: rgb(42, 78, 141, 0.7);
 }
 
 
-@media (max-width: 960px) {
-  .logo {
-    width: 55%;
-  }
 
-  .form {
-    justify-content: space-between;
-  }
 
-  .serach_align {
-    flex-direction: column;
-  }
-
-  .search2,
-  .search1 {
-    width: 100%;
-  }
-
-  .search1 {
-    margin-bottom: 50px;
-  }
-
-  .buscador {
-    width: 100%;
-  }
-
-  .modal-content {
-    padding-bottom: 52px;
-    width: 530px;
+@media (min-width: 575px) {
+  #img {
+    width: 90%;
   }
 }
 
-@media (max-width: 575px) {
+@media (min-width: 768px) {
   .logo {
-    width: 70%;
-    margin: 20px auto 70px auto;
+    width: 40%;
+    margin: 20px auto 100px auto;
   }
-
   .serach_align {
-    margin: 0 25px;
+    padding: 0px;
   }
+  .form {
+    margin-bottom: 0;
+  }
+}
 
-  .search_input {
+@media (min-width: 992px) {
+  .input-group, .form{
     width: 75%;
   }
-
-  .card {
-    margin: 20px;
-  }
-
-  #img {
-    width: 280px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-  }
-
 }
+
+
