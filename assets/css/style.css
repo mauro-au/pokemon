@@ -331,83 +331,83 @@ option {
   background: #00000061;
 }
 
-.normal{
+.normal, #normal{
   background-color: #bfb16e;
 }
 
-.fighting{
+.fighting, #fighting{
   background-color: #cf5c35;
 }
 
-.flying{
+.flying, #flying{
   background-color: #bea0c2;
 }
 
-.poison{
+.poison, #poison {
   background-color: #b96889;
 }
 
-.ground{
+.ground, #ground{
   background-color: #e6c163;
 }
 
-.rock{
+.rock, #rock{
   background-color: #c9ab40;
 }
 
-.bug{
+.bug, #bug{
   background-color: #bebb30;
 }
 
-.ghost{
+.ghost, #ghost{
   background-color: #987984;
 }
 
-.steel{
+.steel, #steel{
   background-color: #cabbac;
 }
 
-.fire{
+.fire, #fire{
   background-color: #f2953b;
 }
 
-.water{
+.water, #water{
   background-color: #92a0c2;
 }
 
-.grass{
+.grass, #grass{
   background-color: #9dc652;
 }
 
-.electric{
+.electric, #electric{
   background-color: #f7cd3b;
 }
 
-.psychic{
+.psychic, #psychic{
   background-color: #f77979;
 }
 
-.ice{
+.ice, #ice{
   background-color: #b4d2b1;
 }
 
-.dragon{
+.dragon, #dragon{
   background-color: #a172bf;
 }
 
-.dark{
+.dark, #dark{
   background-color: #98794c;
 }
 
-.fairy{
+.fairy, #fairy{
   background-color: #f0a692;
 }
 
-.unknown{
+.unknown, #unknown{
   background-color: rgb(255, 202, 142, 0.7);
 }
 
-.shadow{
+.shadow, #shadow{
   background-color: rgb(42, 78, 141, 0.7);
 }
 

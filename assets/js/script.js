@@ -22,6 +22,13 @@ function card(cardPokemon) {
   let colorType = cardPokemon.types;
   let typeBack = "";
   let typeIcon = "";
+  let valor = $("#search_select").val();
+  $('.logo, #boton_buscar_numero').click(function() {
+    $('select').val('Tipo de pokemon');
+  });
+  $('.logo, #boton_buscar_tipo').click(function() {
+    $('input').val('');
+  });
 
   if (idPokemon < '10') {
     idPokemon = '00' + idPokemon    
@@ -47,7 +54,7 @@ function card(cardPokemon) {
     `<div class="card col-sm-6 col-md-4 col-xl-3">
         <img src="${urlImgPokemon + idPokemon}.png" class="card-img-top" id="img" alt="...">
         <div class="circle"></div>
-        <div class="card-body ${typeBack}">
+        <div class="card-body ${typeBack}" id='${valor}'>
             <h5 id="numero">#${idPokemon}</h5>
             <h1 class="card-title" id="name">${namePokemon}</h1>
             <div class="tipos">
@@ -96,6 +103,7 @@ function modalPokemon(idPokemon, typeBack, namePokemon, tall, weight, stats, idP
                                   </div>
                                </div>
                                <div class="modal_grafico col-12 col-md-6">
+                                  <h1 class="modalName">Habilidades</h1>
                                   <div class="graphyc" id="chartContainer${idPokemon}"></div>
                                </div>
                            </div>
@@ -109,9 +117,6 @@ function modalPokemon(idPokemon, typeBack, namePokemon, tall, weight, stats, idP
                 animationEnabled: true,
                 theme: "light1", // "light1", "light2", "dark1", "dark2"
                 backgroundColor: "transparent",
-                title: {
-                  text: "habilidades",
-                },
                 axisY: {
                   title: "",
                 },
@@ -140,7 +145,7 @@ homePokemon();
 // + '?offset=0&limit=900'
 function homePokemon() {
   $(".main").html("");
-  $.get(urlPokemones + '?offset=0&limit=20', (data) => {
+  $.get(urlPokemones + '?offset=0&limit=100', (data) => {
     data.results.forEach((resultPokemon) => {
       $.get(resultPokemon.url, (totalPokemon) => {
         card(totalPokemon);
