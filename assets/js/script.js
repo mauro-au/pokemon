@@ -1,7 +1,9 @@
 const urlPokemones = "https://pokeapi.co/api/v2/pokemon/";
 const urlTypePokemones = "https://pokeapi.co/api/v2/type/";
 const urlInfoPokemones = "https://pokeapi.co/api/v2/pokemon-species/";
-const urlImgPokemon = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
+// const urlImgPokemon = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
+// const urlImgPokemon = "https://pokeres.bastionbot.org/images/pokemon/";
+const urlImgPokemon = "https://pokeres.bastionbot.org/images/pokemon/";
 
 // Eventos
 
@@ -52,7 +54,7 @@ function card(cardPokemon) {
 
   $(".main").append(
     `<div class="card col-sm-6 col-md-4 col-xl-3">
-        <img src="${urlImgPokemon + idPokemon}.png" class="card-img-top" id="img" alt="...">
+        <img src="${urlImgPokemon + idPokemonModal}.png" class="card-img-top" id="img" alt="...">
         <div class="circle"></div>
         <div class="card-body ${typeBack}" id='${valor}'>
             <h5 id="numero">#${idPokemon}</h5>
@@ -89,7 +91,7 @@ function modalPokemon(idPokemon, typeBack, namePokemon, tall, weight, stats, idP
                                <div class="modal_info col-12 col-md-6">
                                   <h1 class="modalName">${namePokemon}</h1>
                                   <div class="pokemonModal col-12">
-                                      <img src="${urlImgPokemon + idPokemon}.png" alt="...">
+                                      <img src="${urlImgPokemon + idPokemonModal}.png" alt="...">
                                   </div>
                                   <div class="iconType">
                                       ${typeIcon}

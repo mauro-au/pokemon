@@ -191,13 +191,13 @@ option {
 }
 
 #img {
-  width: 250px;
+  width: 215px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   position: absolute;
-  top: -13px;
+  top: 0px;
   z-index: 1;
 }
 
@@ -254,7 +254,7 @@ option {
   justify-content: center;
 }
 .pokemonModal img {
-  width: auto;
+  width: 65%;
 }
 .iconType{
   display: flex;
@@ -329,6 +329,12 @@ option {
 }
 .btn-primary:hover{
   background: #00000061;
+}
+
+.generation{
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0 30px 0;
 }
 
 .normal, #normal{
@@ -416,7 +422,8 @@ option {
 
 @media (min-width: 575px) {
   #img {
-    width: 85%;
+    width: 73%;
+    top: 10px;
   }
   .modal-dialog {
     margin: 5% auto;
