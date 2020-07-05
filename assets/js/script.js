@@ -1,9 +1,8 @@
 const urlPokemones = "https://pokeapi.co/api/v2/pokemon/";
 const urlTypePokemones = "https://pokeapi.co/api/v2/type/";
 const urlInfoPokemones = "https://pokeapi.co/api/v2/pokemon-species/";
-// const urlImgPokemon = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
-// const urlImgPokemon = "https://pokeres.bastionbot.org/images/pokemon/";
-const urlImgPokemon = "https://pokeres.bastionbot.org/images/pokemon/";
+const urlImgPokemonDetail = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
+const urlImgPokemonFull = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/";
 
 // Eventos
 
@@ -16,7 +15,7 @@ document.querySelector("#boton_buscar_tipo").addEventListener("click", buscarPok
 function card(cardPokemon) {
   // let imgPokemon = cardPokemon.sprites.front_default;
   let idPokemon = cardPokemon.id; 
-  let idPokemonModal = cardPokemon.id; 
+  let idPokemonModal = cardPokemon.id;
   let tall = cardPokemon.height/10;
   let weight = cardPokemon.weight/10;
   let namePokemon = cardPokemon.name;
@@ -54,7 +53,7 @@ function card(cardPokemon) {
 
   $(".main").append(
     `<div class="card col-sm-6 col-md-4 col-xl-3">
-        <img src="${urlImgPokemon + idPokemonModal}.png" class="card-img-top" id="img" alt="...">
+        <img src="${urlImgPokemonDetail + idPokemon}.png" class="card-img-top" id="img" alt="...">
         <div class="circle"></div>
         <div class="card-body ${typeBack}" id='${valor}'>
             <h5 id="numero">#${idPokemon}</h5>
@@ -74,7 +73,7 @@ function modalPokemon(idPokemon, typeBack, namePokemon, tall, weight, stats, idP
   
   $.get(urlInfoPokemones + idPokemonModal, (dataPokemon) => {
 
-            let descriptionPokemon = dataPokemon.flavor_text_entries[3].flavor_text;
+            let descriptionPokemon = dataPokemon.flavor_text_entries[26].flavor_text;
             
             $(".main").append(
               `<div class="modal fade" id="exampleModalCenter${idPokemon}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -91,7 +90,7 @@ function modalPokemon(idPokemon, typeBack, namePokemon, tall, weight, stats, idP
                                <div class="modal_info col-12 col-md-6">
                                   <h1 class="modalName">${namePokemon}</h1>
                                   <div class="pokemonModal col-12">
-                                      <img src="${urlImgPokemon + idPokemonModal}.png" alt="...">
+                                      <img src="${urlImgPokemonFull + idPokemon}.png" alt="...">
                                   </div>
                                   <div class="iconType">
                                       ${typeIcon}

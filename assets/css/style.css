@@ -422,8 +422,8 @@ option {
 
 @media (min-width: 575px) {
   #img {
-    width: 73%;
-    top: 10px;
+    width: 80%;
+    top: 0px;
   }
   .modal-dialog {
     margin: 5% auto;
