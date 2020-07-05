@@ -1,6 +1,6 @@
 body {
   background: #F5C556;
-  margin-bottom: 150px;
+  margin-bottom: 80px;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
@@ -39,7 +39,7 @@ h5{
 }
 
 .search {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .form {
@@ -335,6 +335,33 @@ option {
   display: flex;
   justify-content: space-around;
   padding: 15px 0 30px 0;
+}
+.navegation{
+  display: flex;
+}
+.navegation i{
+  padding: 5px 0px 5px 15px;
+}
+.navegation button{
+  padding: 11px 25px;
+  color: #fff;
+  margin: 0 10px;
+  background: #0069d9;
+  border-radius: 24px;
+  border: 0;
+  transition: .5s ease-out;
+  animation-name: fondo;
+  animation-duration: 3s;
+}
+@keyframes fondo {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+.navegation button:hover{
+    background: #034285;
+}
+.navegation button:focus{
+  outline: 0px auto -webkit-focus-ring-color;
 }
 
 .normal, #normal{
