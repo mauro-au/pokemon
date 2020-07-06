@@ -470,6 +470,9 @@ h5 {
 
 .navegation {
   display: flex;
+  flex-direction: column;
+  animation-name: opacity;
+  animation-duration: 4s;
 }
 .navegation i {
   padding: 3px 0px;
@@ -482,8 +485,6 @@ h5 {
   border-radius: 24px;
   border: 0;
   transition: 0.5s ease-out;
-  animation-name: opacity;
-  animation-duration: 3s;
 }
 .navegation button:hover {
   background: #034285;

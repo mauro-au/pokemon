@@ -6,10 +6,11 @@ const urlImgPokemonFull = "https://assets.pokemon.com/assets/cms2/img/pokedex/fu
 
 var navNext = $("#navegation__next");
 var navBack = $("#navegation__back");
+var message = $(".text")
 
 // Eventos
-$("#header__home").click(homeLogo);
-$("#navegation__back").click(homeLogo);
+$("#header__home").click(backPokemon);
+$("#navegation__back").click(backPokemon);
 $("#search__button").click(buscarPokemonNumero);
 $("#search__button-type").click(buscarPokemonTipo);
 $("#navegation__next").click(nextPokemon);
@@ -18,7 +19,6 @@ $("#navegation__next").click(nextPokemon);
 //Funciones
 
 function card(cardPokemon) {
-  // let imgPokemon = cardPokemon.sprites.front_default;
   let idPokemon = cardPokemon.id; 
   let idPokemonModal = cardPokemon.id;
   let tall = cardPokemon.height/10;
@@ -29,6 +29,7 @@ function card(cardPokemon) {
   let typeBack = "";
   let typeIcon = "";
   let valor = $("#search__select").val();
+  
   $('.header__logo, #navegation__back, #search__button').click(function() {
     $('select').val('Tipo de pokemon');
   });
@@ -56,9 +57,13 @@ function card(cardPokemon) {
     typeIcon += `<div class="type__pokemon"><img class="${colorType[0].type.name}" src="assets/img/icon/${colorType[0].type.name}.svg" alt=""></div>`;
   }
 
+  $(".card img").on('error', function () {
+    $(this).prop('src', 'assets/img/nofound.png');
+  });
+
   $(".main").append(
     `<div class="card col-sm-6 col-md-4 col-xl-3">
-        <img src="${urlImgPokemonDetail + idPokemon}.png" class="card__img" alt="...">
+        <img src="${urlImgPokemonDetail + idPokemon}.png" class="card__img" alt="${namePokemon}">
         <div class="card__circle"></div>
         <div class="card-body ${typeBack}" id='${valor}'>
             <h5>#${idPokemon}</h5>
@@ -156,8 +161,9 @@ function nextPokemon() {
   homePokemon(Next);
 }
 
-function homeLogo() {
+function backPokemon() {
   homePokemon(urlPokemones + '?offset=0&limit=40');
+  message.css({ "display": "none" });
   $(".main").html("");
 }
 
@@ -171,6 +177,12 @@ function homePokemon(url) {
   }
   $.get(url, (data) => {
     Next = data.next
+    if (Next == urlPokemones + '?offset=960&limit=4'){
+      $(".text").append("<h3>Opss... No hay mas pokemones por el momento</h3>");
+      navNext.css({ "display": "none" });
+      navBack.css({ "display": "flex" });
+    }
+    console.log(Next)
     data.results.forEach((resultPokemon) => {
       $.get(resultPokemon.url, (totalPokemon) => {
         card(totalPokemon);
@@ -193,6 +205,7 @@ function buscarPokemonNumero() {
   
   $.get(idResult, (idPokemon) => {
     card(idPokemon);
+    $("#idPokemon").val('');
   }).fail(function (jqXHR, textStatus, errorThrown) {
     error('El pokemos que buscas no existe, intentalo de nuevo')
   });
