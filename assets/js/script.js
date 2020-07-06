@@ -4,15 +4,15 @@ const urlInfoPokemones = "https://pokeapi.co/api/v2/pokemon-species/";
 const urlImgPokemonDetail = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
 const urlImgPokemonFull = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/";
 
-var navNext = document.querySelector("#navegation__next");
-var navBack = document.querySelector("#navegation__back");
+var navNext = $("#navegation__next");
+var navBack = $("#navegation__back");
 
 // Eventos
-document.querySelector("#header__home").addEventListener("click", homeLogo);
-document.querySelector("#search__button").addEventListener("click", buscarPokemonNumero);
-document.querySelector("#search__button-type").addEventListener("click", buscarPokemonTipo);
-document.querySelector("#navegation__next").addEventListener("click", nextPokemon);
-document.querySelector("#navegation__back").addEventListener("click", homeLogo);
+$("#header__home").click(homeLogo);
+$("#navegation__back").click(homeLogo);
+$("#search__button").click(buscarPokemonNumero);
+$("#search__button-type").click(buscarPokemonTipo);
+$("#navegation__next").click(nextPokemon);
 
 
 //Funciones
@@ -143,6 +143,14 @@ function modalPokemon(idPokemon, typeBack, namePokemon, tall, weight, stats, idP
       chart.render();
   });
 }
+function error(text) {
+  $(".main").html(`
+      <div class="alert alert-danger" role="alert">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>    
+        ${text}
+      </div>`
+  )
+}
 
 function nextPokemon() {
   homePokemon(Next);
@@ -156,8 +164,8 @@ function homeLogo() {
 homePokemon();
 
 function homePokemon(url) {
-  navNext.style.display = 'flex';
-  navBack.style.display = 'none';
+  navNext.css({ "display": "flex" });
+  navBack.css({ "display": "none" });
   if (!url) {
     url = urlPokemones + '?offset=0&limit=40';
   }
@@ -172,12 +180,12 @@ function homePokemon(url) {
 }
 
 function buscarPokemonNumero() {
-  navNext.style.display = 'none';
-  navBack.style.display = 'flex';
+  navNext.css({ "display": "none" });
+  navBack.css({ "display": "flex" });
   let id = $("#idPokemon").val();
 
   if (id === "") {
-    alert("Ingrese un mumero o nombre de pokemon valido");
+    error('Ingrese un número o nombre de pokemon válido')
     return false;
   }
   $(".main").html("");
@@ -185,6 +193,8 @@ function buscarPokemonNumero() {
   
   $.get(idResult, (idPokemon) => {
     card(idPokemon);
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    error('El pokemos que buscas no existe, intentalo de nuevo')
   });
 }
 
@@ -195,19 +205,19 @@ $.get(urlTypePokemones, (type) => {
 });
 
 function buscarPokemonTipo() {
-  navNext.style.display = 'none'; 
-  navBack.style.display = 'flex'; 
+  navNext.css({ "display": "none"});
+  navBack.css({ "display": "flex" });
   let valor = $("#search__select").val();
 
   if (valor === null) {
-    alert("Seleccionar un tipo de pokemon");
+    error("Seleccionar un tipo de pokemon");
     return false;
   }
 
   let valorFinal = urlTypePokemones + valor;
   $.get(valorFinal, (buscarPokemon1) => {
     if (buscarPokemon1.pokemon.length == 0) {
-      alert("No hay pokemones por ahora");
+      error("No hay pokemones por ahora")
       return false;
     }
     $(".main").html("");

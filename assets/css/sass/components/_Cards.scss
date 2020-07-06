@@ -7,6 +7,8 @@
     margin-top: 30px;
     transition: ease .5s;
     width: 85%;
+    animation-name: opacity;
+    animation-duration: 2s;
     &:hover {
         transform: scale(1.1);
     }

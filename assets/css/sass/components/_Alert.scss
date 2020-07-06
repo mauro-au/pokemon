@@ -1,0 +1,12 @@
+.alert{
+    width: 70%;
+    padding: 20px;
+    margin-top: 40px;
+    color: $alertText;
+    background-color: $alert;
+    border: 3px solid $alertBorder;
+    font-weight: bold;
+    text-align: center;
+    animation-name: opacity;
+    animation-duration: 2s;
+}

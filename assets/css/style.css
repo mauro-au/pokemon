@@ -384,6 +384,8 @@ h5 {
   margin-top: 30px;
   transition: ease 0.5s;
   width: 85%;
+  animation-name: opacity;
+  animation-duration: 2s;
 }
 .card:hover {
   transform: scale(1.1);
@@ -492,6 +494,19 @@ h5 {
 .navegation p {
   padding: 0 10px;
   margin: 0;
+}
+
+.alert {
+  width: 70%;
+  padding: 20px;
+  margin-top: 40px;
+  color: #380c10;
+  background-color: #f99c9c;
+  border: 3px solid #b15d654d;
+  font-weight: bold;
+  text-align: center;
+  animation-name: opacity;
+  animation-duration: 2s;
 }
 
 /*# sourceMappingURL=style.css.map */
