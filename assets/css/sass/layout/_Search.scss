@@ -1,0 +1,127 @@
+.search {
+    margin-bottom: 30px;
+    &__content {
+        justify-content: center;
+        display: flex;
+    }
+    &__input {
+        background: $input;
+        border-radius: 30px;
+        width: 100%;
+        transition: .5s ease-out;
+        color: $text;
+        font-size: $medium;
+        font-weight: $ligth;
+        padding: 30px 30px 30px 60px;
+        &::placeholder {
+            color: $text;
+        }
+    }
+    &__btn {
+        background: $button;
+        border-radius: 24px !important;
+        padding: 11px 17px;
+        color: $white;
+        position: absolute !important;
+        right: 10px;
+        z-index: 3 !important;
+        &:hover {
+            background: $buttonHover;
+            color:$white;
+        }
+    }
+    &__icon-search {
+        font-size: $medium;
+        color: $text;
+        position: absolute;
+        left: 25px;
+    }
+    &__icon-down{
+        position: absolute;
+        right: 113px;
+        color: $text;
+        font-size: $small;
+        z-index: 3;
+    }
+    &__number {
+        display: flex;
+        width: 100%;
+        position: relative;
+        align-items: center;
+    }
+    &__align {
+        padding: 0px 20px;
+        @include mq(md) {
+            padding: 0px;
+        }
+    }
+    &__option{
+        background: $white;
+        font-weight: $ligth;
+    }
+}
+
+#search__select {
+    background: $input;
+    border-radius: 30px;
+    transition: .5s ease-out;
+    color: $text;
+    font-size: $medium;
+    font-weight: $ligth;
+    padding-left: 28px;
+    height: 59px;
+}
+
+.form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    @include mq(md) {
+        margin-bottom: 0;
+    }
+    @include mq(lg) {
+        width: 75%;
+    }
+    @include mq(xl) {
+        width: 65%;
+    }
+    &-control {
+        border: 0;
+    }
+    button {
+        border: 0;
+        i {
+            color: $text;
+        }
+    }
+}
+
+.input-group{
+    width: 100%;
+    @include mq(lg) {
+        width: 75%;
+    }
+    @include mq(xl) {
+        width: 65%;
+    }
+    &-append{
+        align-items: center !important;
+    }
+}
+
+.custom-select {
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+
+.search__input[type=text]:focus:not([readonly]),
+#search__select[type=text]:focus:not([readonly]),
+.custom-select:focus{
+    color: $text !important;
+    background: $white !important;
+    @include box-shadow(0px 0px 34px -18px rgba(0, 0, 0, 0.75) !important);
+}

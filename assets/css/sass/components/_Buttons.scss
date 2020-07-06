@@ -1,0 +1,44 @@
+/*buttom*/
+
+.btn-primary {
+    font-family: $roboto;
+    font-weight: $regular;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: 30px;
+    border: none;
+    padding: 10px 25px;
+    @include box-shadow(0px 9px 14px -6px rgba(0,0,0,.4));
+    &:hover{
+        border: none;
+        background: #00000061;
+    }
+}
+
+.navegation{
+    display: flex;
+    i{
+        padding: 3px 0px;
+    }
+    button{
+        padding: 11px 25px;
+        color: $white;
+        margin: 0 10px;
+        background: $button;
+        border-radius: 24px;
+        border: 0;
+        transition: .5s ease-out;
+        animation-name: opacity;
+        animation-duration: 3s;
+        &:hover{
+            background: $buttonHover;
+        }
+        &:focus{
+            outline: 0px auto -webkit-focus-ring-color;
+        }
+    }
+    p{
+        padding: 0 10px;
+        margin: 0;
+    }
+}

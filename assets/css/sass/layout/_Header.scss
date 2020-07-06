@@ -1,0 +1,19 @@
+/*Header*/
+
+.header{
+    &__logo {
+        width: 70%;
+        margin: 20px auto 60px auto;
+        @include mq(md) {
+            width: 40%;
+            margin: 20px auto 100px auto;
+        }
+    }
+}
+#header__home{
+    cursor: pointer;
+    transition: ease .5s;
+    &:hover {
+        transform: scale(1.1);
+    }
+}

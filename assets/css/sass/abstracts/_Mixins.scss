@@ -1,0 +1,28 @@
+@mixin mq($breakpoint) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        // Write the media query.
+        @media only screen and (min-width: $breakpoint-value) {
+            @content;
+        }
+
+        // If the breakpoint doesn't exist in the map.
+    }
+
+    @else {
+        @media only screen and (min-width: $breakpoint + 'px') {
+            @content;
+        }
+
+    }
+}
+@mixin box-shadow( $shadow ){
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}

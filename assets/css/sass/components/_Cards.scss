@@ -1,0 +1,66 @@
+/*Cards*/
+
+.card {
+    border: 0;
+    border-radius: 1rem;
+    background: transparent;
+    margin-top: 30px;
+    transition: ease .5s;
+    width: 85%;
+    &:hover {
+        transform: scale(1.1);
+    }
+    &-body {
+        text-align: center;
+        border-radius: 1rem;
+        padding-top: 100px;
+        @include box-shadow(0px 0px 34px -18px rgba(0, 0, 0, 0.75));
+        h5 {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 5px;
+            width: 85px;
+            margin: 15px auto 20px auto;
+        }
+    }
+    &-title{
+        margin: 0;
+    }
+    &__circle {
+        background: $white;
+        width: 185px;
+        height: 185px;
+        border-radius: 50%;
+        margin: 22px auto -88px auto;
+        opacity: .2;
+    }
+    &__type {
+        display: flex;
+        justify-content: center;
+    }
+    &__img {
+        width: 215px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        position: absolute;
+        top: 0px;
+        z-index: 1;
+        @include mq(sm) {
+            width: 80%;
+            top: 0px;
+        }
+    }
+}
+
+.type__pokemon{
+    padding: 15px 10px;
+    margin: 0;
+    img {
+        width: 41px;
+        border-radius: 50px;
+        padding: 10px;
+        @include box-shadow(0px 2px 3px 0px rgba(0,0,0,.2));
+    }
+}

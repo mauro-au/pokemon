@@ -1,0 +1,94 @@
+// Modal
+.modal{
+    &__features {
+        display: flex;
+        justify-content: center;
+        p {
+            padding: 5px 20px;
+            font-weight: $bold;
+            background: #ffffff61;
+            border-radius: 30px;
+            margin: 10px;
+        }
+    }
+    &__pokemon{
+        display: flex;
+        justify-content: center;
+        img {
+            width: 65%;
+        }
+    }
+    &__type{
+        display: flex;
+        justify-content: center;
+    }
+    &__description{  
+        p {
+            font-weight: $regular;
+            padding: 15px;
+            text-align: justify;
+        }
+    }
+    &__name{
+        text-align: center;
+    }
+    &__info{
+        h1{
+            font-size: $xx-large;
+        }
+        h5 {
+            text-align: center;
+            font-size: $medium;
+        }
+    }
+    &__graphic{
+        display: none;
+        @include mq(md) {
+            display: block;
+        }
+    }
+    &-dialog{
+        max-width: 85% !important;
+        margin: 10% auto;
+        @include mq(sm) {
+            margin: 5% auto;
+        }
+        @include mq(md) {
+            max-width: 70% !important;
+            margin: 5% auto;
+        }
+        @include mq(xl) {
+            max-width: 50% !important;
+            margin: auto;
+        }
+    }
+    &-content{
+        border-radius: 1rem;
+    }
+    &-header,
+    &-footer{
+        border: none;
+    }
+    &-header {
+        border: none;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    &-title{
+        font-size: $large;
+    }
+}
+
+.canvasjs-chart{
+    &-canvas {
+        width: 89% !important;
+    }
+    &-credit{
+        display: none;
+    }
+}
+
+.close img {
+  width: 25px;
+  margin: 5px;
+}

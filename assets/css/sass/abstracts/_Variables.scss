@@ -1,0 +1,58 @@
+// Color Scheme
+
+// First Color Scheme
+$body: #F5C556;
+$white: #ffffff;
+
+$button: #0069d9;
+$buttonHover: #034285;
+$input: #f0d698;
+$text: #9e720a;
+
+// Color Pokemon
+$normal: #bfb16e;
+$fighting: #cf5c35;
+$flying: #bea0c2;
+$poison: #b96889;
+$ground: #e6c163;
+$rock: #c9ab40;
+$bug: #bebb30;
+$ghost: #987984;
+$steel: #cabbac;
+$fire: #f2953b;
+$water: #92a0c2;
+$grass: #9dc652;
+$electric: #f7cd3b;
+$psychic: #f77979;
+$ice: #b4d2b1;
+$dragon: #a172bf;
+$dark: #98794c;
+$fairy: #f0a692;
+$unknown: rgb(255, 202, 142, 0.7);
+$shadow: rgb(42, 78, 141, 0.7);
+
+// Tipography
+
+//Font Family
+$roboto: 'Roboto', sans-serif;
+
+// Font Weight
+$ligth: 100;
+$regular: 300;
+$semibold: 500;
+$bold: 900;
+
+// Font Sizes
+$xx-large: 2.5rem;
+$large: 2rem;
+$medium: 1.5rem;
+$small: 1.25rem;
+
+//media quieris
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);

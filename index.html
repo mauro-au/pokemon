@@ -21,34 +21,34 @@
 
 <body>
   <header>
-    <div class="container">
+    <div class="container header">
       <div class="row">
-        <img class="logo" id="home" src="assets/img/logo.png" alt="">
+        <img class="header__logo" id="header__home" src="assets/img/logo.png" alt="">
       </div>
     </div>
 
     <div class="container search">
-      <div class="serach_align">
+      <div class="search__align">
         <div class="row">
-          <div class="search1 col-12 col-md-6">
+          <div class="search__content col-12 col-md-6">
             <form class="form">
-              <div class="buscador">
-                <i class="fas fa-search icon"></i>
-                <input class="form-control search_input" id="idPokemon" type="text" placeholder="Busca tu pokemon">
-                <button class="btn btn-search" id="boton_buscar_numero" type="button">Buscar</button>
+              <div class="search__number">
+                <i class="fas fa-search search__icon-search"></i>
+                <input class="form-control search__input" id="idPokemon" type="text" placeholder="Busca tu pokemon">
+                <button class="btn search__btn" id="search__button" type="button">Buscar</button>
               </div>
               <div class="input-group-append"></div>
             </form>
           </div>
 
-          <div class="search2 col-12 col-md-6">
+          <div class="search__content col-12 col-md-6">
             <div class="input-group">
-              <select class="custom-select" id="search_select">
-                <option disabled selected>Tipo de pokemon</option>
+              <select class="custom-select" id="search__select">
+                <option disabled selected class="search__option">Tipo de pokemon</option>
               </select>
               <div class="input-group-append">
-                <button class="btn btn-search" id="boton_buscar_tipo" type="button">Buscar</button>
-                <i class="fas fa-caret-down icon2"></i>
+                <button class="btn search__btn" id="search__button-type" type="button">Buscar</button>
+                <i class="fas fa-caret-down search__icon-down"></i>
               </div>
             </div>
           </div>
@@ -61,8 +61,14 @@
     <div class="container">
       <div class="row main justify-content-around"></div>
       <div class="navegation justify-content-center align-items-center mt-5">
-        <button id="next">Ver más pokemones<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-        <button class="back" id="back">Volver<i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+        <button id="navegation__next">
+          <p>Ver más pokemones</p>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <button id="navegation__back">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          <p>Volver</p>
+        </button>
       </div>
     </div>
   </section>

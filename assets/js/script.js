@@ -4,15 +4,15 @@ const urlInfoPokemones = "https://pokeapi.co/api/v2/pokemon-species/";
 const urlImgPokemonDetail = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
 const urlImgPokemonFull = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/";
 
-var navNext = document.querySelector("#next");
-var navBack = document.querySelector("#back");
+var navNext = document.querySelector("#navegation__next");
+var navBack = document.querySelector("#navegation__back");
 
 // Eventos
-document.querySelector("#home").addEventListener("click", homeLogo);
-document.querySelector("#boton_buscar_numero").addEventListener("click", buscarPokemonNumero);
-document.querySelector("#boton_buscar_tipo").addEventListener("click", buscarPokemonTipo);
-document.querySelector("#next").addEventListener("click", nextPokemon);
-document.querySelector("#back").addEventListener("click", homeLogo);
+document.querySelector("#header__home").addEventListener("click", homeLogo);
+document.querySelector("#search__button").addEventListener("click", buscarPokemonNumero);
+document.querySelector("#search__button-type").addEventListener("click", buscarPokemonTipo);
+document.querySelector("#navegation__next").addEventListener("click", nextPokemon);
+document.querySelector("#navegation__back").addEventListener("click", homeLogo);
 
 
 //Funciones
@@ -28,11 +28,11 @@ function card(cardPokemon) {
   let colorType = cardPokemon.types;
   let typeBack = "";
   let typeIcon = "";
-  let valor = $("#search_select").val();
-  $('.logo,.back, #boton_buscar_numero').click(function() {
+  let valor = $("#search__select").val();
+  $('.header__logo, #navegation__back, #search__button').click(function() {
     $('select').val('Tipo de pokemon');
   });
-  $('.logo, .back, #boton_buscar_tipo').click(function() {
+  $('.header__logo, #navegation__back, #search__button-type').click(function() {
     $('input').val('');
   });
 
@@ -50,20 +50,20 @@ function card(cardPokemon) {
   }
 
   if (colorType.length < 2) {
-    typeIcon += `<div class="tiposPokemon"><img class="${colorType[0].type.name}" src="assets/img/icon/${colorType[0].type.name}.svg" alt=""></div>`;
+    typeIcon += `<div class="type__pokemon"><img class="${colorType[0].type.name}" src="assets/img/icon/${colorType[0].type.name}.svg" alt=""></div>`;
   } else {
-    typeIcon += `<div class="tiposPokemon"><img class="${colorType[1].type.name}" src="assets/img/icon/${colorType[1].type.name}.svg" alt=""></div>`;
-    typeIcon += `<div class="tiposPokemon"><img class="${colorType[0].type.name}" src="assets/img/icon/${colorType[0].type.name}.svg" alt=""></div>`;
+    typeIcon += `<div class="type__pokemon"><img class="${colorType[1].type.name}" src="assets/img/icon/${colorType[1].type.name}.svg" alt=""></div>`;
+    typeIcon += `<div class="type__pokemon"><img class="${colorType[0].type.name}" src="assets/img/icon/${colorType[0].type.name}.svg" alt=""></div>`;
   }
 
   $(".main").append(
     `<div class="card col-sm-6 col-md-4 col-xl-3">
-        <img src="${urlImgPokemonDetail + idPokemon}.png" class="card-img-top" id="img" alt="...">
-        <div class="circle"></div>
+        <img src="${urlImgPokemonDetail + idPokemon}.png" class="card__img" alt="...">
+        <div class="card__circle"></div>
         <div class="card-body ${typeBack}" id='${valor}'>
-            <h5 id="numero">#${idPokemon}</h5>
-            <h1 class="card-title" id="name">${namePokemon}</h1>
-            <div class="tipos">
+            <h5>#${idPokemon}</h5>
+            <h1 class="card-title">${namePokemon}</h1>
+            <div class="card__type">
                 ${typeIcon}
             </div>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter${idPokemon}"> Ver Gráfica </button>
@@ -92,29 +92,28 @@ function modalPokemon(idPokemon, typeBack, namePokemon, tall, weight, stats, idP
                  </div>
                  <div class="modal-body">
                    <div class="row">
-                       <div class="modal_info col-12 col-md-6">
-                          <h1 class="modalName">${namePokemon}</h1>
-                          <div class="pokemonModal col-12">
+                       <div class="modal__info col-12 col-md-6">
+                          <h1 class="modal__name">${namePokemon}</h1>
+                          <div class="modal__pokemon col-12">
                               <img src="${urlImgPokemonFull + idPokemon}.png" alt="...">
                           </div>
-                          <div class="iconType">
+                          <div class="modal__type">
                               ${typeIcon}
                           </div>
-                          <div class="caracterist col-12">
-                              <p class="tall">${tall}m</p>
-                              <p class="weight">${weight}kg</p>
+                          <div class="modal__features col-12">
+                              <p>${tall}m</p>
+                              <p>${weight}kg</p>
                           </div>
-                          <div class="description col-12">
-                             <p class="infoPokemon">${descriptionPokemon}</p>
+                          <div class="modal__description col-12">
+                             <p>${descriptionPokemon}</p>
                           </div>
                        </div>
-                       <div class="modal_grafico col-12 col-md-6">
-                          <h1 class="modalName">Habilidades</h1>
-                          <div class="graphyc" id="chartContainer${idPokemon}"></div>
+                       <div class="modal__graphic col-12 col-md-6">
+                          <h1>Habilidades</h1>
+                          <div id="chartContainer${idPokemon}"></div>
                        </div>
                    </div>
-                 </div>
-    
+                 </div>    
               </div>
           </div>
         </div>`
@@ -150,7 +149,7 @@ function nextPokemon() {
 }
 
 function homeLogo() {
-  homePokemon(urlPokemones + '?offset=0&limit=52');
+  homePokemon(urlPokemones + '?offset=0&limit=40');
   $(".main").html("");
 }
 
@@ -160,7 +159,7 @@ function homePokemon(url) {
   navNext.style.display = 'flex';
   navBack.style.display = 'none';
   if (!url) {
-    url = urlPokemones + '?offset=0&limit=52';
+    url = urlPokemones + '?offset=0&limit=40';
   }
   $.get(url, (data) => {
     Next = data.next
@@ -191,14 +190,14 @@ function buscarPokemonNumero() {
 
 $.get(urlTypePokemones, (type) => {
   type.results.forEach((typePokemon) => {
-    $("#search_select").append(`<option>${typePokemon.name}</option>`);
+    $("#search__select").append(`<option class="search__option">${typePokemon.name}</option>`);
   });
 });
 
 function buscarPokemonTipo() {
   navNext.style.display = 'none'; 
   navBack.style.display = 'flex'; 
-  let valor = $("#search_select").val();
+  let valor = $("#search__select").val();
 
   if (valor === null) {
     alert("Seleccionar un tipo de pokemon");

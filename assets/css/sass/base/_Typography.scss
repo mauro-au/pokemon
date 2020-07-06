@@ -1,0 +1,17 @@
+/* typography */ 
+
+body {
+    font-family: $roboto;
+    font-weight: $ligth;
+}
+
+h1 {
+  font-size: $large;
+  opacity: 0.5;
+  text-transform: capitalize;
+  font-weight: $bold;
+}
+h5{
+  font-weight: $medium;
+  color: rgba(0, 0, 0, 0.5);
+}
