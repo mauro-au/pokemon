@@ -8,7 +8,7 @@
     transition: ease .5s;
     width: 85%;
     animation-name: opacity;
-    animation-duration: 2s;
+    animation-duration: 1s;
     &:hover {
         transform: scale(1.1);
     }
@@ -49,6 +49,8 @@
         position: absolute;
         top: 0px;
         z-index: 1;
+        animation-name: opacity;
+        animation-duration: 2s;
         @include mq(sm) {
             width: 80%;
             top: 0px;
