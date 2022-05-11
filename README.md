@@ -54,7 +54,7 @@ Para obtener más información, consulte la documentación en https://pokeapi.co
 
 ## Vista Proyecto 💥
 
-[ver proyecto](https://mauriciodesign.github.io/pokemon/) :computer:
+[ver proyecto](https://mauro-au.github.io/pokemon/) :computer:
 
 - Pantalla de inicio
 
